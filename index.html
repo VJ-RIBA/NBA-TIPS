@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA Best Bets - Pro Dashboard</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --accent: #38bdf8;
+            --text: #f8fafc;
+            --handicap: #0369a1;
+            --over: #15803d;
+            --under: #b91c1c;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        h1 {
+            color: var(--accent);
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        .date-badge {
+            background: #334155;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 25px;
+            border-top: 4px solid var(--accent);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .tag {
+            font-size: 0.75em;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .tag-handicap { background: var(--handicap); }
+        .tag-over { background: var(--over); }
+        .tag-under { background: var(--under); }
+
+        .game-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #94a3b8;
+        }
+
+        .pressure-section {
+            margin-top: 60px;
+            background: var(--card);
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        .pressure-item {
+            margin-bottom: 25px;
+        }
+
+        .pressure-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .bar-bg {
+            height: 12px;
+            background: #334155;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #38bdf8, #818cf8);
+            width: 0%;
+            transition: width 1.5s ease-out;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #64748b;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>🏀 NBA PRO DASHBOARD</h1>
+        <div class="date-badge">📅 12 de Março de 2026</div>
+    </header>
+
+    <div class="grid">
+        <!-- HANDICAP -->
+        <div class="card">
+            <div class="tag tag-handicap">Top Handicap</div>
+            <div class="game-title">Miami Heat -5.5</div>
+            <p>Vs Milwaukee Bucks</p>
+            <div class="stats">
+                <span>🔥 Confiança: 95%</span>
+                <span>Odd: 1.85</span>
+            </div>
+        </div>
+
+        <!-- OVER -->
+        <div class="card" style="border-top-color: var(--over);">
+            <div class="tag tag-over">Top Over</div>
+            <div class="game-title">Over 224.5</div>
+            <p>Lakers vs Bulls</p>
+            <div class="stats">
+                <span>🔥 Confiança: 82%</span>
+                <span>Odd: 1.90</span>
+            </div>
+        </div>
+
+        <!-- UNDER -->
+        <div class="card" style="border-top-color: var(--under);">
+            <div class="tag tag-under">Top Under</div>
+            <div class="game-title">Under 212.5</div>
+            <p>Nuggets vs Spurs</p>
+            <div class="stats">
+                <span>🔥 Confiança: 74%</span>
+                <span>Odd: 1.88</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="pressure-section">
+        <h2>📈 GRÁFICO DE PRESSÃO (VOLUME DE TRADES)</h2>
+        <p style="color: #94a3b8; margin-bottom: 30px;">Indicação de onde o dinheiro pesado está entrando agora.</p>
+
+        <div class="pressure-item">
+            <div class="pressure-info">
+                <span>Miami Heat -5.5 (Handicap)</span>
+                <span>88% do Volume</span>
+            </div>
+            <div class="bar-bg"><div class="bar-fill" style="width: 88%;"></div></div>
+        </div>
+
+        <div class="pressure-item">
+            <div class="pressure-info">
+                <span>Suns -9.5 (Handicap)</span>
+                <span>72% do Volume</span>
+            </div>
+            <div class="bar-bg"><div class="bar-fill" style="width: 72%;"></div></div>
+        </div>
+
+        <div class="pressure-item">
+            <div class="pressure-info">
+                <span>Over 224.5 Lakers (Pontuação)</span>
+                <span>65% do Volume</span>
+            </div>
+            <div class="bar-bg"><div class="bar-fill" style="width: 65%;"></div></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Dashboard de Entradas Esportivas | Use com responsabilidade.</p>
+    </footer>
+</div>
+
+</body>
+</html>
