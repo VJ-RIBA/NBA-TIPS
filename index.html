@@ -13,6 +13,7 @@
             --handicap: #0369a1;
             --over: #15803d;
             --under: #b91c1c;
+            --bet365: #fbbf24;
         }
 
         body {
@@ -39,15 +40,6 @@
             margin: 0;
         }
 
-        .date-badge {
-            background: #334155;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            display: inline-block;
-            margin-top: 10px;
-        }
-
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -60,11 +52,7 @@
             border-radius: 12px;
             padding: 25px;
             border-top: 4px solid var(--accent);
-            transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
+            position: relative;
         }
 
         .tag {
@@ -81,18 +69,35 @@
         .tag-over { background: var(--over); }
         .tag-under { background: var(--under); }
 
+        .bet-link {
+            display: block;
+            background: var(--bet365);
+            color: #000;
+            text-decoration: none;
+            text-align: center;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+            transition: opacity 0.2s;
+        }
+
+        .bet-link:hover {
+            opacity: 0.8;
+        }
+
         .game-title {
             font-size: 1.4em;
             font-weight: bold;
-            margin: 10px 0;
+            margin-bottom: 5px;
         }
 
-        .stats {
+        .stats-row {
             display: flex;
             justify-content: space-between;
             margin-top: 20px;
             font-size: 0.9em;
-            color: #94a3b8;
         }
 
         .pressure-section {
@@ -102,35 +107,17 @@
             border-radius: 12px;
         }
 
-        .pressure-item {
-            margin-bottom: 25px;
-        }
-
-        .pressure-info {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-        }
-
         .bar-bg {
             height: 12px;
             background: #334155;
             border-radius: 6px;
             overflow: hidden;
+            margin-top: 10px;
         }
 
         .bar-fill {
             height: 100%;
             background: linear-gradient(90deg, #38bdf8, #818cf8);
-            width: 0%;
-            transition: width 1.5s ease-out;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            color: #64748b;
-            font-size: 0.8em;
         }
     </style>
 </head>
@@ -139,16 +126,17 @@
 <div class="container">
     <header>
         <h1>🏀 NBA PRO DASHBOARD</h1>
-        <div class="date-badge">📅 12 de Março de 2026</div>
+        <p>Dashboard de Melhores Entradas Diárias</p>
     </header>
 
     <div class="grid">
         <!-- HANDICAP -->
         <div class="card">
             <div class="tag tag-handicap">Top Handicap</div>
+            <a href="https://www.bet365.com/#/AS/B18/" target="_blank" class="bet-link">Apostar na Bet365 ↗</a>
             <div class="game-title">Miami Heat -5.5</div>
             <p>Vs Milwaukee Bucks</p>
-            <div class="stats">
+            <div class="stats-row">
                 <span>🔥 Confiança: 95%</span>
                 <span>Odd: 1.85</span>
             </div>
@@ -157,9 +145,10 @@
         <!-- OVER -->
         <div class="card" style="border-top-color: var(--over);">
             <div class="tag tag-over">Top Over</div>
+            <a href="https://www.bet365.com/#/AS/B18/" target="_blank" class="bet-link">Apostar na Bet365 ↗</a>
             <div class="game-title">Over 224.5</div>
             <p>Lakers vs Bulls</p>
-            <div class="stats">
+            <div class="stats-row">
                 <span>🔥 Confiança: 82%</span>
                 <span>Odd: 1.90</span>
             </div>
@@ -168,9 +157,10 @@
         <!-- UNDER -->
         <div class="card" style="border-top-color: var(--under);">
             <div class="tag tag-under">Top Under</div>
+            <a href="https://www.bet365.com/#/AS/B18/" target="_blank" class="bet-link">Apostar na Bet365 ↗</a>
             <div class="game-title">Under 212.5</div>
             <p>Nuggets vs Spurs</p>
-            <div class="stats">
+            <div class="stats-row">
                 <span>🔥 Confiança: 74%</span>
                 <span>Odd: 1.88</span>
             </div>
@@ -178,37 +168,16 @@
     </div>
 
     <div class="pressure-section">
-        <h2>📈 GRÁFICO DE PRESSÃO (VOLUME DE TRADES)</h2>
-        <p style="color: #94a3b8; margin-bottom: 30px;">Indicação de onde o dinheiro pesado está entrando agora.</p>
-
-        <div class="pressure-item">
-            <div class="pressure-info">
-                <span>Miami Heat -5.5 (Handicap)</span>
-                <span>88% do Volume</span>
-            </div>
+        <h2>📈 GRÁFICO DE PRESSÃO (TRADE VOLUME)</h2>
+        <div style="margin-bottom: 25px;">
+            <p>Miami Heat -5.5 (Volume: 88%)</p>
             <div class="bar-bg"><div class="bar-fill" style="width: 88%;"></div></div>
         </div>
-
-        <div class="pressure-item">
-            <div class="pressure-info">
-                <span>Suns -9.5 (Handicap)</span>
-                <span>72% do Volume</span>
-            </div>
+        <div style="margin-bottom: 25px;">
+            <p>Suns -9.5 (Volume: 72%)</p>
             <div class="bar-bg"><div class="bar-fill" style="width: 72%;"></div></div>
         </div>
-
-        <div class="pressure-item">
-            <div class="pressure-info">
-                <span>Over 224.5 Lakers (Pontuação)</span>
-                <span>65% do Volume</span>
-            </div>
-            <div class="bar-bg"><div class="bar-fill" style="width: 65%;"></div></div>
-        </div>
     </div>
-
-    <footer>
-        <p>© 2026 Dashboard de Entradas Esportivas | Use com responsabilidade.</p>
-    </footer>
 </div>
 
 </body>
